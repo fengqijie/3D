@@ -22,6 +22,29 @@
     <div class="text">
       <canvas id="content"></canvas>
     </div>
+    <div class="form_div">
+      <div>
+        <el-input
+          placeholder="请输入用户"
+          prefix-icon="el-icon-s-custom"
+          v-model="username"
+          class="input_common"
+        >
+        </el-input>
+      </div>
+      <div>
+        <el-input
+          placeholder="请输入密码"
+          prefix-icon="el-icon-lock"
+          v-model="password"
+          class="input_common"
+        >
+        </el-input>
+      </div>
+      <div>
+        <el-button type="primary" round>登 录</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +56,9 @@ Vue.use(VueParticles);
 export default {
   data() {
     return {
-      ctx: ""
+      ctx: "",
+      username: "",
+      password: ""
     };
   },
   mounted() {
@@ -62,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .cash {
   position: fixed;
   margin: 0;
@@ -75,5 +100,40 @@ export default {
 .text {
   position: absolute;
   z-index: 100;
+  width: 270px;
+  height: 82px;
+}
+.form_div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80px, -81px);
+}
+.input_common {
+  width: 320px;
+  margin-bottom: 20px;
+  .el-input__inner {
+    border-radius: 20px;
+    padding-left: 36px;
+  }
+  .el-input__prefix {
+    font-size: 18px;
+    left: 10px;
+  }
+  .el-input.is-active .el-input__inner,
+  .el-input__inner:focus {
+    border-color: #ff409bb8;
+  }
+}
+.el-button--primary {
+  font-size: 16px;
+  width: 320px;
+  background-color: #ff409b61;
+  border-color: #ff409b61;
+}
+.el-button--primary:focus,
+.el-button--primary:hover {
+  background-color: #ff409bb8;
+  border-color: #ff409bb8;
 }
 </style>
